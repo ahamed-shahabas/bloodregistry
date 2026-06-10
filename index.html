@@ -195,27 +195,7 @@
   </div>
 </div>
 
-<script>
-const PASS = 'Admin@Blood786';
-const STORE_KEY = 'blood_registry_v1';
-const isAdminURL = new URLSearchParams(window.location.search).has('admin');
 
-function getData() {
-  try { return JSON.parse(localStorage.getItem(STORE_KEY)) || []; }
-  catch { return []; }
-}
-function saveData(d) { localStorage.setItem(STORE_KEY, JSON.stringify(d)); }
-
-function showPage(p) {
-  document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
-  document.getElementById('page-' + p).classList.add('active');
-  document.getElementById('admin-signout-btn').style.display = (p === 'admin') ? 'block' : 'none';
-}
-
-function alert_(id, msg, type) {
-  const el = document.getElementById(id);
-  el.innerHTML = msg ? `<div class="alert alert-${type}">${msg}</div>` : '';
-}
 
 window.onload = function() {
   if (isAdminURL) {
